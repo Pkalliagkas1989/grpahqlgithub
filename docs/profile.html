@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zone01 Profile</title>
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="topbar__logo-circle" aria-hidden="true"></div>
+        <div>
+          <h1 class="topbar__title">Zone01 Profile</h1>
+          <p id="user-tagline" class="topbar__subtitle">Loading...</p>
+        </div>
+      </div>
+
+      <button id="logout-btn" class="btn topbar__logout" type="button">
+        Log out
+      </button>
+    </header>
+
+    <!-- Global error banner -->
+    <div id="profile-error" class="global-error" role="alert"></div>
+
+    <main class="layout">
+      <!-- Left column -->
+      <section class="panel">
+        <h2 class="panel__title">Overview</h2>
+
+        <div class="profile-summary" aria-label="Profile summary">
+          <div class="profile-summary__row">
+            <span class="label">Login</span>
+            <span id="profile-login" class="value">—</span>
+          </div>
+
+          <div class="profile-summary__row">
+            <span class="label">Campus</span>
+            <span id="profile-campus" class="value">—</span>
+          </div>
+
+          <div class="profile-summary__row">
+            <span class="label">Joined</span>
+            <span id="profile-created-at" class="value">—</span>
+          </div>
+        </div>
+
+        <div class="stats-grid" aria-label="Key stats">
+          <div class="stat-card">
+            <p class="stat-card__label">Total XP</p>
+            <p id="stat-total-xp" class="stat-card__value">—</p>
+            <p class="stat-card__hint">All tracked XP transactions</p>
+          </div>
+
+          <div class="stat-card">
+            <p class="stat-card__label">Audit Ratio</p>
+            <p id="stat-audit-ratio" class="stat-card__value">—</p>
+            <p class="stat-card__hint">
+              Up: <span id="stat-audit-up">—</span> · Down:
+              <span id="stat-audit-down">—</span>
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <p class="stat-card__label">Pass Rate</p>
+            <p id="stat-pass-rate" class="stat-card__value">—</p>
+            <p class="stat-card__hint">
+              Pass: <span id="stat-pass-count">—</span> · Fail:
+              <span id="stat-fail-count">—</span>
+            </p>
+          </div>
+        </div>
+
+        <h3 class="panel__subtitle">Recent XP Projects</h3>
+        <ul id="recent-projects" class="projects-list" aria-label="Recent projects">
+          <li>Loading...</li>
+        </ul>
+      </section>
+
+      <!-- Right column -->
+      <section class="panel panel--charts">
+        <h2 class="panel__title">Stats</h2>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">XP Progress</h3>
+              <p class="chart-card__subtitle">Cumulative XP over time</p>
+            </div>
+            <div class="chart-card__body">
+              <svg
+                id="xp-chart"
+                class="chart"
+                viewBox="0 0 100 60"
+                aria-label="XP over time chart"
+              ></svg>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Pass vs Fail</h3>
+              <p class="chart-card__subtitle">Outcome ratio based on results</p>
+            </div>
+            <div class="chart-card__body">
+              <svg
+                id="passfail-chart"
+                class="chart"
+                viewBox="0 0 100 60"
+                aria-label="Pass Fail ratio chart"
+              ></svg>
+            </div>
+          </div>
+
+          <div class="chart-card chart-card--wide">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Top XP Projects</h3>
+              <p class="chart-card__subtitle">Top 5 projects by total XP</p>
+            </div>
+            <div class="chart-card__body">
+              <svg
+                id="xp-projects-chart"
+                class="chart"
+                viewBox="0 0 100 60"
+                aria-label="Top XP projects chart"
+              ></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/ui.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/graphql.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>
