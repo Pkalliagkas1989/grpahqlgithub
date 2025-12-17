@@ -43,7 +43,11 @@
 
     clearSvg(svg);
 
-    const rows = [...xpRows].reverse();
+    const rows = [...xpRows].sort((a, b) => {
+      const dateA = new Date(a?.createdAt).getTime();
+      const dateB = new Date(b?.createdAt).getTime();
+      return (Number.isNaN(dateA) ? 0 : dateA) - (Number.isNaN(dateB) ? 0 : dateB);
+    });
     const values = [];
     let cumulative = 0;
 

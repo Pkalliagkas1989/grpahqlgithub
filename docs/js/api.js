@@ -60,13 +60,6 @@ async function signin(identifier, password) {
 
   token = token.trim();
 
-  console.log("=== Signin Debug ===");
-  console.log("Raw response:", raw);
-  console.log(
-    "Final JWT to store:",
-    token ? token.substring(0, 30) + "..." : "(empty)",
-  );
-
   localStorage.setItem("jwt", token);
   return token;
 }
